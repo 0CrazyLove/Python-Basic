@@ -35,11 +35,13 @@ print("""Elige una operacion:
 opcion = int(input("->"))
 if(isinstance(opcion, int)): 
    if(opcion == 1):
-      verdadero = False
+      verdadero = True
       while verdadero:
-         numero_uno = int(input("introduzca su primer numero:"))
-         if not(isinstance(numero_uno, int)): 
-          print("Solo se permite valores numericos")
-         verdadero = True
+         try:
+            numero_uno = int(input("introduzca su primer numero:"))
+            verdadero = False 
+         except ValueError:
+             print("Solo se permite valores numericos")
+            
    numero_dos = int(input("introduzca su segundo numero:"))
    sumar(numero_uno, numero_dos)
